@@ -75,8 +75,7 @@ func (p *Provider) createRecords(ctx context.Context, domain string, records []l
 	}
 
 	for _, record := range records {
-		err := p.createRecord(ctx, domain, record)
-		if err != nil {
+		if err := p.createRecord(ctx, domain, record); err != nil {
 			return created, err
 		}
 
